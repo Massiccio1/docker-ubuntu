@@ -1,0 +1,90 @@
+The push refers to repository [docker.io/massiccio/docker-ubuntu]
+7a96e0954122: Preparing
+94a726edf00b: Preparing
+e96ca002150a: Preparing
+4009635bd442: Preparing
+35fae1034bfb: Preparing
+6f38707e8102: Preparing
+5f70bf18a086: Preparing
+0c0f64f821d9: Preparing
+2f25ad24f000: Preparing
+138add87e3bb: Preparing
+d8469475b28b: Preparing
+1bbd23657d95: Preparing
+ba42ff239acd: Preparing
+75b34042430f: Preparing
+44125814dc6f: Preparing
+d4e748611f31: Preparing
+e1b40a29f186: Preparing
+d53bbe187e5a: Preparing
+0edceab01379: Preparing
+bd94079815f6: Preparing
+9e0b61a613df: Preparing
+88779ada1015: Preparing
+5f70bf18a086: Preparing
+3d290e096d4c: Preparing
+a0c8ce0a2ae5: Preparing
+b352b476954c: Preparing
+46aedfa54775: Preparing
+66c904c488c9: Preparing
+8de0ad782acf: Preparing
+e9ae64f24ab0: Preparing
+8ca84aaf3fc8: Preparing
+5022b7a04aaf: Preparing
+8ceb9643fb36: Preparing
+0edceab01379: Waiting
+bd94079815f6: Waiting
+46aedfa54775: Waiting
+9e0b61a613df: Waiting
+88779ada1015: Waiting
+3d290e096d4c: Waiting
+a0c8ce0a2ae5: Waiting
+b352b476954c: Waiting
+66c904c488c9: Waiting
+8de0ad782acf: Waiting
+8ca84aaf3fc8: Waiting
+e9ae64f24ab0: Waiting
+5022b7a04aaf: Waiting
+8ceb9643fb36: Waiting
+6f38707e8102: Waiting
+5f70bf18a086: Waiting
+d8469475b28b: Waiting
+0c0f64f821d9: Waiting
+44125814dc6f: Waiting
+d4e748611f31: Waiting
+ba42ff239acd: Waiting
+1bbd23657d95: Waiting
+75b34042430f: Waiting
+2f25ad24f000: Waiting
+e1b40a29f186: Waiting
+138add87e3bb: Waiting
+d53bbe187e5a: Waiting
+7a96e0954122: Layer already exists
+35fae1034bfb: Layer already exists
+e96ca002150a: Layer already exists
+94a726edf00b: Layer already exists
+4009635bd442: Layer already exists
+6f38707e8102: Layer already exists
+5f70bf18a086: Layer already exists
+0c0f64f821d9: Layer already exists
+ba42ff239acd: Pushed
+75b34042430f: Pushed
+44125814dc6f: Pushed
+d4e748611f31: Pushed
+138add87e3bb: Pushed
+e1b40a29f186: Pushed
+d53bbe187e5a: Pushed
+0edceab01379: Pushed
+9e0b61a613df: Pushed
+88779ada1015: Pushed
+3d290e096d4c: Pushed
+a0c8ce0a2ae5: Pushed
+b352b476954c: Pushed
+46aedfa54775: Pushed
+66c904c488c9: Pushed
+8de0ad782acf: Pushed
+e9ae64f24ab0: Pushed
+bd94079815f6: Pushed
+1bbd23657d95: Pushed
+8ceb9643fb36: Layer already exists
+5022b7a04aaf: Pushed
