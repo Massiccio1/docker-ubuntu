@@ -1,0 +1,89 @@
+FROM ubuntu:22.04
+
+
+
+RUN apt update -y
+RUN apt install -y nala 
+
+RUN nala update
+RUN nala install -y nodejs
+RUN nala install -y npm
+RUN nala install -y python-is-python3
+
+RUN nala install -y curl
+RUN nala install -y neofetch
+RUN nala install -y nano
+RUN nala install -y git
+RUN nala install -y wget
+RUN npm install -g nodemon  
+
+##starship shit
+SHELL ["/bin/bash", "-c"]
+WORKDIR /root
+RUN curl -O https://starship.rs/install.sh
+RUN chmod +x install.sh
+RUN ./install.sh --yes
+RUN echo eval '"$(starship init bash)"' >> ~/.bashrc
+RUN mkdir -p ~/.config && touch ~/.config/starship.toml
+RUN wget https://gist.githubusercontent.com/Massiccio1/90dd875ba0188b670ffcba4b887d330e/raw/024f399ac34e2b21021684f966896a02fdc70e58/starship.toml -O ~/.config/starship.toml
+
+#admin user test test
+# RUN useradd -m -p salSp1wOPp6fk test     
+RUN useradd -m  test     
+RUN passwd -d test   
+
+USER test
+RUN echo eval '"$(starship init bash)"' >> ~/.bashrc
+RUN mkdir -p ~/.config && touch ~/.config/starship.toml
+RUN wget https://gist.githubusercontent.com/Massiccio1/90dd875ba0188b670ffcba4b887d330e/raw/024f399ac34e2b21021684f966896a02fdc70e58/starship.toml -O ~/.config/starship.toml
+RUN chsh --shell /bin/bash
+
+USER root
+RUN nala install -y sudo
+RUN adduser test sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+#time stuff
+ENV TZ=Europe/Rome
+RUN nala install -y tzdata  
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+
+
+USER test
+WORKDIR  /home/test
+RUN sudo nala install -y git
+RUN sudo nala install -y python3-pip
+RUN mkdir .ssh
+RUN ssh-keygen -b 2048 -t rsa -f /home/test/.ssh/id_rsa -q -N ""
+
+RUN sudo nala install -y net-tools
+RUN sudo nala install -y net-tools
+RUN sudo nala install -y emacs
+RUN sudo nala install -y vim
+RUN sudo nala install -y nano
+RUN sudo mkdir /shared
+RUN sudo chmod 777 /shared
+RUN sudo mkdir /bidone
+RUN sudo chown test /bidone
+ENV PATH=$PATH:/home/test/.local/bin
+
+RUN sudo apt isntall -y htop
+
+
+ENTRYPOINT [ "/bin/bash" ]
+
+
+
+
+#                       docker build -t dockerhub.outer-heaven.duckdns.org/my-ubuntu:latest .
+
+
+#                       docker run -it dockerhub.outer-heaven.duckdns.org/my-ubuntu:latest
+#                       docker run --rm -it dockerhub.outer-heaven.duckdns.org/my-ubuntu:latest
+
+
+#                       docker push dockerhub.outer-heaven.duckdns.org/my-ubuntu:latest
+
+
+#                       docker pull dockerhub.outer-heaven.duckdns.org/my-ubuntu:latest
