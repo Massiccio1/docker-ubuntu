@@ -18,10 +18,6 @@ jobs:
       run: echo ${BUILD}
     - name: check remote build name
       run: echo ${BUILD_REMOTE}
-    - name: check docker build command
-      run: sudo docker build --help
-    - name: check docker push command
-      run: sudo docker push --help
     - name: Build the Docker image
       run: sudo docker build -t $BUILD:latest -t $BUILD_REMOTE:latest .
 
@@ -32,7 +28,7 @@ jobs:
     - name: check build name
       run: echo ${BUILD}:latest
     - name: Build the Docker image
-      run: sudo docker push ${BUILD}:latest --progress=plain
+      run: sudo docker push ${BUILD}:latest
 
   push_remote:
     runs-on: self-hosted
