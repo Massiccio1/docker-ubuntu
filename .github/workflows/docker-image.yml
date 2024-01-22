@@ -34,13 +34,8 @@ jobs:
     runs-on: self-hosted
     needs: build
     steps:
-    -   name: check env
-        run: env
-    -   name: Login to Docker Hub
-        run: echo $DOCKERHUB_TOKEN | sudo docker login -u $DOCKERHUB_USERNAME --password-stdin
-    -   name: push to remote
-        run: sudo docker push $BUILD_REMOTE:latest
-
+    -   name: Login to Docker Hub and push to remote
+        run: echo $DOCKERHUB_TOKEN | sudo docker login -u $DOCKERHUB_USERNAME --password-stdin && sudo docker push $BUILD_REMOTE:latest
   
   notify:
     runs-on: self-hosted
