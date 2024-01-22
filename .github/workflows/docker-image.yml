@@ -20,8 +20,10 @@ jobs:
       run: echo ${BUILD_REMOTE}
     - name: check docker build command
       run: sudo docker build --help
+    - name: check docker push command
+      run: sudo docker push --help
     - name: Build the Docker image
-      run: sudo docker build -t $BUILD:latest -t $BUILD_REMOTE:latest --progress=plain .
+      run: sudo docker build -t $BUILD:latest -t $BUILD_REMOTE:latest .
 
   push_local:
     runs-on: self-hosted
@@ -41,7 +43,7 @@ jobs:
     -   name: Login to Docker Hub
         run: echo $DOCKERHUB_TOKEN | sudo docker login -u $DOCKERHUB_USERNAME --password-stdin
     -   name: push to remote
-        run: sudo docker push $BUILD_REMOTE:latest --progress=plain
+        run: sudo docker push $BUILD_REMOTE:latest
 
   
   notify:
