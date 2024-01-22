@@ -53,6 +53,8 @@ RUN nala install -y neofetch git nodejs \
 RUN nala install -y net-tools iputils-ping htop traceroute
 RUN nala install -y npm
 RUN npm install -g nodemon
+RUN nala install -y dnsutils
+
 
 
 FROM install as folders
@@ -74,6 +76,7 @@ ENTRYPOINT [ "/bin/bash" ]
 
 
 #                       docker build -t dockerhub.outer-heaven.duckdns.org/my-ubuntu:latest .
+#                       docker build -t dockerhub.outer-heaven.duckdns.org/my-ubuntu:latest -t massiccio/docker-ubuntu.latest .
 
 
 #                       docker run -it dockerhub.outer-heaven.duckdns.org/my-ubuntu:latest
@@ -81,6 +84,7 @@ ENTRYPOINT [ "/bin/bash" ]
 
 
 #                       docker push dockerhub.outer-heaven.duckdns.org/my-ubuntu:latest
+#                       docker push massiccio/docker-ubuntu:latest
 
 
 #                       docker pull dockerhub.outer-heaven.duckdns.org/my-ubuntu:latest
