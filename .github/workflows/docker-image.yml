@@ -18,6 +18,8 @@ jobs:
       run: echo ${BUILD}
     - name: check remote build name
       run: echo ${BUILD_REMOTE}
+    - name: check docker build command
+      run: sudo docker build --help
     - name: Build the Docker image
       run: sudo docker build -t $BUILD:latest -t $BUILD_REMOTE:latest --progress=plain .
 
