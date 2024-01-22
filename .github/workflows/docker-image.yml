@@ -53,7 +53,7 @@ jobs:
   
   notify-error:
     runs-on: self-hosted
-    needs: [pre, build, deploy]
+    needs: [build, push_local, push_remote]
     if: ${{ always() && contains(needs.*.result, 'failure') }}
     steps:
       - name: notify error
