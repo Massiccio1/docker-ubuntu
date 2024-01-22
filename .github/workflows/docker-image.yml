@@ -19,7 +19,7 @@ jobs:
     - name: check remote build name
       run: echo ${BUILD_REMOTE}
     - name: Build the Docker image
-      run: sudo docker build -t $BUILD:latest -t $BUILD_REMOTE:latest .
+      run: sudo docker build -t $BUILD:latest -t $BUILD_REMOTE:latest --progress=plain .
 
   push_local:
     runs-on: self-hosted
@@ -28,7 +28,7 @@ jobs:
     - name: check build name
       run: echo ${BUILD}:latest
     - name: Build the Docker image
-      run: sudo docker push ${BUILD}:latest
+      run: sudo docker push ${BUILD}:latest --progress=plain
 
   push_remote:
     runs-on: self-hosted
@@ -38,8 +38,8 @@ jobs:
         run: env
     -   name: Login to Docker Hub
         run: echo $DOCKERHUB_TOKEN | sudo docker login -u $DOCKERHUB_USERNAME --password-stdin
-    -   name: push to reomote
-        run: sudo docker push $BUILD_REMOTE:latest
+    -   name: push to remote
+        run: sudo docker push $BUILD_REMOTE:latest --progress=plain
 
   
   notify:
@@ -48,7 +48,7 @@ jobs:
     steps:
       - name: notify with telegram
         run: >-
-          curl -X POST -H 'Content-Type: application/json' -d '{"text":"[GHR]\ndeployed '${BUILD}'"}' https://service.outer-heaven.duckdns.org/telegram
+          curl -X POST -H 'Content-Type: application/json' -d '{"text":"[GHR]\ndeployed '${BUILD}'"}' $NOTIFY_URL
   
   notify-error:
     runs-on: self-hosted
@@ -57,4 +57,4 @@ jobs:
     steps:
       - name: notify error
         run: >-
-          curl -X POST -H 'Content-Type: application/json' -d '{"text":"[GHR]\nRROR in '${BUILD}'"}' https://service.outer-heaven.duckdns.org/telegram
+          curl -X POST -H 'Content-Type: application/json' -d '{"text":"[GHR]\nRROR in '${BUILD}'"}' $NOTIFY_URL
