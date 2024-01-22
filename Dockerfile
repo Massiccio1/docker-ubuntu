@@ -70,7 +70,7 @@ RUN sudo chown test /thrash
 ENV PATH=$PATH:/home/test/.local/bin
 RUN echo "export USER=$(whoami)">>.bashrc
 #docker doesn't set $USER env
-
+RUN sudo nala update
 
 ENTRYPOINT [ "/bin/bash" ]
 
