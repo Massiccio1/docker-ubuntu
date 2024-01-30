@@ -22,16 +22,16 @@ It features the admin user `test:test` with access to `sudo` commands without pa
 
 Run the container with:
 ```
-docker run -it -rm massiccio/docker-ubuntu:latest
+docker run -it --rm massiccio/docker-ubuntu:latest
 ```
 Or with a shared folder in read only:
 ```
-docker run -it -rm -v .:/shared:ro massiccio/docker-ubuntu
+docker run -it --rm -v .:/shared:ro massiccio/docker-ubuntu
 ```
 Make a permanent alias for quick access
 
 ```
-echo "alias ubuntu='docker run -it -rm -v .:/shared:ro massiccio/docker-ubuntu'">>~/.bashrc && . ~/.bashrc
+echo "alias ubuntu='docker run -it --rm -v .:/shared:ro massiccio/docker-ubuntu'">>~/.bashrc && . ~/.bashrc
 ```
 Run it with `ubuntu` and stop with `exit`
 
